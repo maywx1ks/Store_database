@@ -1,0 +1,57 @@
+Elina Zarytska                                                                                                                                                    Informatyka II rok
+25.11.25
+
+OPIS BAZY DANYCH – „SklepInternetowy_Elsez_Project”
+
+1. Cel projektu: Celem projektu było zaprojektowanie i utworzenie prostej, relacyjnej bazy danych sklepu internetowego zgodnie z zasadami normalizacji i poprawnego projektowania relacji. Baza ma umożliwiać przechowywanie informacji o klientach, produktach, zamówieniach, płatnościach, dostawach oraz pozostałych elementach sklepu online.bBaza została zrealizowana w Microsoft SQL Server i składa się z 12 tabel.
+
+2. Opis tabel:
+1. Klienci: Przechowuje dane osób korzystających ze sklepu: imię, nazwisko, email, telefon oraz datę rejestracji. Jest to główna tabela powiązana z wieloma innymi (zamówienia, adresy, koszyki).
+2. Adresy: Zawiera adresy klientów używane do dostawy zamówień. Jeden klient może mieć wiele adresów.
+
+3. Kategorie: Opisuje kategorie produktów (np. laptopy, smartfony). Pozwala grupować produkty według rodzaju.
+
+4. Producenci: Przechowuje informacje o producentach produktów (np. Lenovo, Samsung).
+
+5. Produkty: Tabela zawiera listę produktów oferowanych w sklepie, ich opis, cenę, stan magazynu oraz odwołania do kategorii i producenta.
+
+6. StatusZamowienia: Zawiera listę statusów zamówienia (np. „Nowe”, „Wysłane”, „Zrealizowane”). Każde zamówienie ma jeden status.
+
+7. Zamowienia: Reprezentuje główne dane o zamówieniach złożonych przez klientów. Zawiera informacje o kliencie, adresie, dacie zamówienia i sposobie dostawy.
+
+8. PozycjeZamowienia: Szczegółowa tabela związana z zamówieniem. Określa, jakie produkty i w jakiej ilości zostały zamówione.
+
+9. Platnosci: Przechowuje informacje o płatnościach za zamówienia – metoda płatności, kwota, data i status.
+
+10. Dostawy: Zawiera dane o dostawie: wybrana firma kurierska, numer śledzenia oraz status dostawy.
+
+11. Koszyki: Reprezentuje koszyk klienta, tworzony zanim zamówienie zostanie złożone.
+
+12. KoszykPozycje: Przechowuje listę produktów dodanych do koszyka wraz z ilością.
+
+
+3. Relacje między tabelami:
+
+Klienci (1) — (N) Adresy
+Klient może mieć kilka adresów.
+
+Klienci (1) — (N) Zamowienia
+Klient może złożyć wiele zamówień.
+
+Klienci (1) — (N) Koszyki
+
+Kategorie (1) — (N) Produkty
+
+Producenci (1) — (N) Produkty
+
+Zamowienia (1) — (N) PozycjeZamowienia
+
+Zamowienia (1) — (1) Platnosci
+
+Zamowienia (1) — (N) Dostawy
+
+Koszyki (1) — (N) KoszykPozycje
+
+Relacje zostały zrealizowane za pomocą kluczy obcych (FK).
+
+4. Podsumowanie: W ramach zadania zaprojektowałam oraz stworzyłam relacyjną bazę danych przedstawiającą działanie prostego sklepu internetowego. Baza została wykonana w środowisku Microsoft SQL Server i składa się z 12 tabel. W projekcie uwzględniłam wszystkie najważniejsze elementy sklepu online, takie jak klienci, produkty, zamówienia, płatności, dostawy i koszyk. Każda tabela posiada właściwie dobrane klucze główne i obce, a relacje między tabelami zostały zaprojektowane zgodnie z zasadami modelowania relacyjnego. Dzięki temu baza jest przejrzysta, logiczna i pozwala łatwo łączyć dane, co pokazałam przykładowymi zapytaniami SELECT oraz JOIN. Dodatkowo przygotowałam graficzny schemat ERD przedstawiający strukturę całej bazy oraz osobny opis poszczególnych tabel i ich funkcji. Całość w pełni odzwierciedla działanie podstawowego sklepu internetowego i spełnia wymagania zadania zarówno pod względem technicznym, jak i opisowym.
